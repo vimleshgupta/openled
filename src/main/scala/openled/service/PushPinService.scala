@@ -6,7 +6,7 @@ import com.pi4j.io.gpio.PinState._
 import com.pi4j.io.gpio._
 import com.pi4j.wiringpi.SoftPwm
 
-case class PushpinService() {
+case class PushPinService() {
 
   val gpio = GpioFactory.getInstance()
 
@@ -61,12 +61,12 @@ case class PushpinService() {
   }
 }
 
-object PushpinService {
-  var instance: Option[PushpinService] = None
+object PushPinService {
+  var instance: Option[PushPinService] = None
 
   def setup() = {
-    if (instance.isDefined) {
-      instance = Some(PushpinService())
+    if (instance.isEmpty) {
+      instance = Some(PushPinService())
       instance.get.init()
     }
   }

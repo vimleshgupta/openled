@@ -4,7 +4,7 @@ import javax.ws.rs.core.Response
 import javax.ws.rs.core.Response._
 import javax.ws.rs.{GET, Path}
 
-import openled.service.PushpinService
+import openled.service.PushPinService
 
 /**
   * Created by cts1 on 17/2/17.
@@ -14,15 +14,15 @@ class PushPinResource {
 
   @GET
   @Path("/setup")
-  def setup: Response = {
-    PushpinService.setup()
+  def setup(): Response = {
+    PushPinService.setup()
     noContent().build()
   }
 
   @GET
   @Path("/shutdown")
-  def shutdown: Response = {
-    PushpinService.cleanup()
+  def shutdown(): Response = {
+    PushPinService.cleanup()
     noContent().build()
   }
 
